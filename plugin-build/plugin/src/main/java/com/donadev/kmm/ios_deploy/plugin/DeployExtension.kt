@@ -6,7 +6,7 @@ import org.gradle.api.provider.Property
 import javax.inject.Inject
 
 @Suppress("UnnecessaryAbstractClass")
-abstract class DeployExtension @Inject constructor(project: Project) {
+abstract class DeployExtension @Inject constructor() {
 
     abstract val summary: Property<String>
     abstract val url: Property<String>

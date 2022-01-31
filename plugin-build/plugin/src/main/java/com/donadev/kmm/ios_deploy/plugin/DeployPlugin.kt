@@ -12,7 +12,7 @@ abstract class DeployPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val extensionName = "iosDeploy"
         val groupName = "ios-deploy"
-        val extension = project.extensions.create(extensionName, DeployExtension::class.java, project)
+        val extension = project.extensions.create(extensionName, DeployExtension::class.java)
         val xcFrameworkPath = "${project.name}/build/xc/${project.name}.xcframework"
 
         project.tasks.register("buildReleaseXCFramework", BuildReleaseXCFrameworkTask::class.java) {
