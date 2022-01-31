@@ -15,10 +15,7 @@ abstract class DeployPlugin : Plugin<Project> {
         val extension = project.extensions.create(extensionName, DeployExtension::class.java)
         val xcFrameworkPath = "${project.name}/build/xc/${project.name}.xcframework"
 
-        project.tasks.register("buildReleaseXCFramework", BuildReleaseXCFrameworkTask::class.java) {
-            it.xcFrameworkPath.set(xcFrameworkPath)
-            it.group = groupName
-        }
+        project.tasks.register("buildReleaseXCFramework", BuildReleaseXCFrameworkTask::class.java, xcFrameworkPath)
         project.tasks.register("podspec", PodspecTask::class.java) {
             it.extension.set(extension)
             it.xcFrameworkPath.set(xcFrameworkPath)

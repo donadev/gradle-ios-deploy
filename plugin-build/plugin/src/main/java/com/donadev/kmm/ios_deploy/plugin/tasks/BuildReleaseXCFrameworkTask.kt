@@ -1,25 +1,16 @@
 package com.donadev.kmm.ios_deploy.plugin.tasks
 
-import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Exec
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.TaskAction
 import java.io.File
+import javax.inject.Inject
 
-abstract class BuildReleaseXCFrameworkTask : Exec() {
+abstract class BuildReleaseXCFrameworkTask @Inject constructor(xcFrameworkPath : String) : Exec() {
 
     init {
         description = "Generates XC Release Framework"
         dependsOn("linkReleaseFrameworkIosArm64")
         dependsOn("linkReleaseFrameworkIosX64")
-    }
-
-    @get:Input
-    abstract val xcFrameworkPath: Property<String>
-
-    @TaskAction
-    fun execute() {
-        val xcFrameworkDest = File("${project.rootDir}/${xcFrameworkPath.get()}")
+        val xcFrameworkDest = File("${project.rootDir}/${xcFrameworkPath}")
         xcFrameworkDest.deleteRecursively()
         val rootDir = project.projectDir
         val libName = project.name

@@ -31,7 +31,7 @@ abstract class PodspecTask : DefaultTask() {
                 spec.authors                  = '${extension.authors.get()}'
                 spec.license                  = { :type => '${extension.licenseType.get()}', :file => '${extension.licenseFile.get()}' }
                 spec.summary                  = '${extension.summary.get()}'
-                spec.vendored_frameworks      = "$xcFrameworkPath"
+                spec.vendored_frameworks      = "${xcFrameworkPath.get()}"
                 spec.libraries                = "c++"
                 spec.static_framework         = true
                 spec.module_name              = "#{spec.name}_umbrella"
