@@ -29,7 +29,7 @@ class TemplatePluginTest {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("com.donadev.kmm.ios_deploy.plugin")
         val aFile = File(project.projectDir, ".tmp")
-        (project.extensions.getByName("templateExampleConfig") as TemplateExtension).apply {
+        (project.extensions.getByName("templateExampleConfig") as DeployExtension).apply {
             tag.set("a-sample-tag")
             message.set("just-a-message")
             outputFile.set(aFile)

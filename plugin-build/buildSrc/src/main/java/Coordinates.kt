@@ -2,7 +2,7 @@ object PluginCoordinates {
     const val ID = "com.donadev.kmm.ios_deploy.plugin"
     const val GROUP = "com.donadev.kmm.ios_deploy"
     const val VERSION = "1.0.0"
-    const val IMPLEMENTATION_CLASS = "com.donadev.kmm.ios_deploy.plugin.TemplatePlugin"
+    const val IMPLEMENTATION_CLASS = "com.donadev.kmm.ios_deploy.plugin.DeployPlugin"
 }
 
 object PluginBundle {
