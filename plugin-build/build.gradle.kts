@@ -1,10 +1,8 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     kotlin("jvm") version BuildPluginsVersion.KOTLIN apply false
     id("com.gradle.plugin-publish") version BuildPluginsVersion.PLUGIN_PUBLISH apply false
-    id("io.gitlab.arturbosch.detekt") version BuildPluginsVersion.DETEKT
     id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
 }
 
@@ -17,21 +15,8 @@ allprojects {
         mavenCentral()
     }
 
-    apply {
-        plugin("io.gitlab.arturbosch.detekt")
-    }
-
-    detekt {
-        config = rootProject.files("../config/detekt/detekt.yml")
-    }
 }
 
-tasks.withType<Detekt>().configureEach {
-    reports {
-        html.required.set(true)
-        html.outputLocation.set(file("build/reports/detekt.html"))
-    }
-}
 
 tasks.withType<DependencyUpdatesTask> {
     rejectVersionIf {

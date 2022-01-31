@@ -26,8 +26,8 @@ abstract class PodspecTask : DefaultTask() {
             Pod::Spec.new do |spec|
                 spec.name                     = '${project.name}'
                 spec.version                  = '${project.version}'
-                spec.homepage                 = '${extension.url.get()}'
-                spec.source                   = { :git => "${extension.url.get()}", :tag => spec.version.to_s }
+                spec.homepage                 = '${extension.homepage.get()}'
+                spec.source                   = { :git => "${extension.gitUrl.get()}", :tag => spec.version.to_s }
                 spec.authors                  = '${extension.authors.get()}'
                 spec.license                  = { :type => '${extension.licenseType.get()}', :file => '${extension.licenseFile.get()}' }
                 spec.summary                  = '${extension.summary.get()}'

@@ -22,22 +22,7 @@ abstract class SwiftPackageTask : DefaultTask() {
     abstract val xcFrameworkPath: Property<String>
 
     private fun getSwiftPackage(project: Project, extension: DeployExtension) : String {
-        return """
-            Pod::Spec.new do |spec|
-                spec.name                     = '${project.name}'
-                spec.version                  = '${project.version}'
-                spec.homepage                 = '${extension.url.get()}'
-                spec.source                   = { :git => "${extension.url.get()}", :tag => spec.version.to_s }
-                spec.authors                  = '${extension.authors.get()}'
-                spec.license                  = { :type => '${extension.licenseType.get()}', :file => '${extension.licenseFile.get()}' }
-                spec.summary                  = '${extension.summary.get()}'
-                spec.vendored_frameworks      = "$xcFrameworkPath"
-                spec.libraries                = "c++"
-                spec.static_framework         = true
-                spec.module_name              = "#{spec.name}_umbrella"
-                spec.ios.deployment_target = '11.0'
-            end
-        """.trimIndent()
+        return """""".trimIndent()
     }
 
     @TaskAction

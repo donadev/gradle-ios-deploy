@@ -1,8 +1,6 @@
 package com.donadev.kmm.ios_deploy.plugin
 
-import com.donadev.kmm.ios_deploy.plugin.tasks.BuildReleaseXCFrameworkTask
-import com.donadev.kmm.ios_deploy.plugin.tasks.PodspecTask
-import com.donadev.kmm.ios_deploy.plugin.tasks.SwiftPackageTask
+import com.donadev.kmm.ios_deploy.plugin.tasks.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -16,6 +14,14 @@ abstract class DeployPlugin : Plugin<Project> {
         val xcFrameworkPath = "${project.name}/build/xc/${project.name}.xcframework"
 
         project.tasks.register("buildReleaseXCFramework", BuildReleaseXCFrameworkTask::class.java, xcFrameworkPath)
+        project.tasks.register("podRepo", CocoaPodsRepoTask::class.java) {
+            it.extension.set(extension)
+            it.group = groupName
+        }
+        project.tasks.register("podspecDeploy", PodspecDeployTask::class.java) {
+            it.extension.set(extension)
+            it.group = groupName
+        }
         project.tasks.register("podspec", PodspecTask::class.java) {
             it.extension.set(extension)
             it.xcFrameworkPath.set(xcFrameworkPath)
@@ -26,12 +32,6 @@ abstract class DeployPlugin : Plugin<Project> {
             it.xcFrameworkPath.set(xcFrameworkPath)
             it.group = groupName
         }
-        //TODO
-        /*project.task("deployPodspecToRepo") {
-            this.group = groupName
-            dependsOn("podspec")
-            doLast { deployPodspec(project, extension) }
-        }*/
         //TODO
         /*project.task("deployPackageToCollection") {
             this.group = groupName
