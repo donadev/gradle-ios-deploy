@@ -1,15 +1,15 @@
 object PluginCoordinates {
-    const val ID = "com.ncorti.kotlin.gradle.template.plugin"
-    const val GROUP = "com.ncorti.kotlin.gradle.template"
+    const val ID = "com.donadev.kmm.ios_deploy.plugin"
+    const val GROUP = "com.donadev.kmm.ios_deploy"
     const val VERSION = "1.0.0"
-    const val IMPLEMENTATION_CLASS = "com.ncorti.kotlin.gradle.template.plugin.TemplatePlugin"
+    const val IMPLEMENTATION_CLASS = "com.donadev.kmm.ios_deploy.plugin.TemplatePlugin"
 }
 
 object PluginBundle {
-    const val VCS = "https://github.com/cortinico/kotlin-gradle-plugin-template"
-    const val WEBSITE = "https://github.com/cortinico/kotlin-gradle-plugin-template"
-    const val DESCRIPTION = "An empty Gradle plugin created from a template"
-    const val DISPLAY_NAME = "An empty Gradle Plugin from a template"
+    const val VCS = "https://github.com/donadev/gradle-ios-deploy"
+    const val WEBSITE = "https://github.com/donadev/gradle-ios-deploy"
+    const val DESCRIPTION = "A simple Gradle Plugin for Kotlin Multi Platform that lets you upload your iOS artifact to Cocoapods or Swift Package Manager repositories."
+    const val DISPLAY_NAME = "KMM iOS Deploy"
     val TAGS = listOf(
         "plugin",
         "gradle",

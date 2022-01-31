@@ -1,4 +1,4 @@
-package com.ncorti.kotlin.gradle.template.plugin
+package com.donadev.kmm.ios_deploy.plugin
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty

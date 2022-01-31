@@ -5,6 +5,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = ("com.ncorti.kotlin.gradle.template")
+rootProject.name = ("com.donadev.kmm.ios_deploy")
 
 include(":plugin")

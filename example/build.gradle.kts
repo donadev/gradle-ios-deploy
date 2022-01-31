@@ -1,6 +1,6 @@
 plugins {
     java
-    id("com.ncorti.kotlin.gradle.template.plugin")
+    id("com.donadev.kmm.ios_deploy.plugin")
 }
 
 templateExampleConfig {
