@@ -6,21 +6,26 @@ import javax.inject.Inject
 
 abstract class BuildReleaseXCFrameworkTask @Inject constructor(xcFrameworkPath : String) : Exec() {
 
+    private val buildConfiguration = "release"
+    private val rootDir = project.projectDir
+    private val libName = project.name
+
+
+    private val x64FrameworkPath = "$rootDir/build/bin/iosX64/${buildConfiguration}Framework/$libName.framework"
+    private val x64DebugSymbolsPath = "$rootDir/build/bin/iosX64/${buildConfiguration}Framework/$libName.framework.dSYM"
+    private val arm64FrameworkPath = "$rootDir/build/bin/iosArm64/${buildConfiguration}Framework/$libName.framework"
+    private val arm64DebugSymbolsPath = "$rootDir/build/bin/iosArm64/${buildConfiguration}Framework/$libName.framework.dSYM"
+
+    private val xcFrameworkDest = File("${project.rootDir}/${xcFrameworkPath}")
+
     init {
         description = "Generates XC Release Framework"
-        dependsOn("linkReleaseFrameworkIosArm64")
-        dependsOn("linkReleaseFrameworkIosX64")
-        val xcFrameworkDest = File("${project.rootDir}/${xcFrameworkPath}")
+        dependsOn("link${buildConfiguration.capitalize()}FrameworkIosArm64")
+        dependsOn("link${buildConfiguration.capitalize()}FrameworkIosX64")
+    }
+
+    override fun exec() {
         xcFrameworkDest.deleteRecursively()
-        val rootDir = project.projectDir
-        val libName = project.name
-        val arm64FrameworkPath = "$rootDir/build/bin/iosArm64/releaseFramework/$libName.framework"
-        val arm64DebugSymbolsPath =
-            "$rootDir/build/bin/iosArm64/releaseFramework/$libName.framework.dSYM"
-
-        val x64FrameworkPath = "$rootDir/build/bin/iosX64/releaseFramework/$libName.framework"
-        val x64DebugSymbolsPath = "$rootDir/build/bin/iosX64/releaseFramework/$libName.framework.dSYM"
-
         executable = "xcodebuild"
         args(mutableListOf<String>().apply {
             add("-create-xcframework")
@@ -39,5 +44,6 @@ abstract class BuildReleaseXCFrameworkTask @Inject constructor(xcFrameworkPath :
             add("-debug-symbols")
             add(x64DebugSymbolsPath)
         })
+        super.exec()
     }
 }
