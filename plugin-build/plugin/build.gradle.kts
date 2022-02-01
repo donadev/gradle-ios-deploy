@@ -14,6 +14,20 @@ dependencies {
 
     testImplementation(TestingLib.JUNIT)
 }
+fun fileCredentials() = Properties().apply {
+    load(FileInputStream(rootProject.file("github.properties")))
+}
+
+fun ciCredentials() = Properties().apply {
+    this["gpr.usr"] = System.getenv("GITHUB_USERNAME").toString()
+    this["gpr.key"] = System.getenv("GITHUB_TOKEN").toString()
+}
+
+val isCI: Boolean = System.getenv("GITHUB_ACTIONS").toBoolean()
+val githubProperties = when {
+    isCI -> ciCredentials()
+    else -> fileCredentials()
+}
 
 
 java {
@@ -35,10 +49,10 @@ publishing {
     repositories {
         maven {
             name = "Remote"
-            url = uri("https://maven.pkg.github.com/donadev/ios-gradle-deploy")
+            url = uri("https://maven.pkg.github.com/donadev/gradle-ios-deploy")
             credentials {
-                username = "donadev"
-                password = System.getenv("GITHUB_TOKEN")
+                username = githubProperties["gpr.usr"].toString()
+                password = githubProperties["gpr.key"].toString()
             }
         }
     }

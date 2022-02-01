@@ -9,3 +9,6 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+
+github.properties
+plugin-build/github.properties
