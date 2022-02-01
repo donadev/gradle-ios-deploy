@@ -1,7 +1,11 @@
+import java.util.*
+import java.io.*
+
 plugins {
     kotlin("jvm")
     id("java-gradle-plugin")
     id("com.gradle.plugin-publish")
+    id("maven-publish")
 }
 
 dependencies {
@@ -10,6 +14,14 @@ dependencies {
 
     testImplementation(TestingLib.JUNIT)
 }
+fun fileCredentials() = Properties().apply {
+    load(FileInputStream(rootProject.file("github.properties")))
+}
+
+fun ciCredentials() = Properties().apply {
+    this["gpr.key"] = System.getenv("GPR_KEY").toString()
+}
+
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -22,6 +34,19 @@ gradlePlugin {
             id = PluginCoordinates.ID
             implementationClass = PluginCoordinates.IMPLEMENTATION_CLASS
             version = PluginCoordinates.VERSION
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Remote"
+            url = uri("https://maven.pkg.github.com/donadev/ios-gradle-deploy")
+            credentials {
+                username = "donadev"
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
