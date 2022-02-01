@@ -22,9 +22,9 @@ A simple Gradle Plugin for Kotlin Multi Platform that lets you upload your iOS a
     summary.set("...") //summary for the repo
     homepage.set("...") //Webpage url 
     gitUrl.set("...") //url for the git repository
-    podRepository.set(
-      PodRepository(
-        "name", //alias of the spec repository in your local system
+    specRepository.set(
+      SpecRepository(
+        "name", //alias of the spec repository in your local system (can be any string)
         "url" //url of the private spec repository
       )
     )
