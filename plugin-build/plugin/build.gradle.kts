@@ -56,6 +56,14 @@ publishing {
             }
         }
     }
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["java"])
+            groupId = PluginCoordinates.GROUP
+            artifactId = PluginCoordinates.ID
+            version = PluginCoordinates.VERSION
+        }
+    }
 }
 
 // Configuration Block for the Plugin Marker artifact on Plugin Central
