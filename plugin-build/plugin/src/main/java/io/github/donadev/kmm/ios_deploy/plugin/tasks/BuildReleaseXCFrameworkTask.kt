@@ -15,6 +15,8 @@ abstract class BuildReleaseXCFrameworkTask @Inject constructor(xcFrameworkPath :
     private val x64DebugSymbolsPath = "$rootDir/build/bin/iosX64/${buildConfiguration}Framework/$libName.framework.dSYM"
     private val arm64FrameworkPath = "$rootDir/build/bin/iosArm64/${buildConfiguration}Framework/$libName.framework"
     private val arm64DebugSymbolsPath = "$rootDir/build/bin/iosArm64/${buildConfiguration}Framework/$libName.framework.dSYM"
+    private val simulatorArm64FrameworkPath = "$rootDir/build/bin/iosSimulatorArm64/${buildConfiguration}Framework/$libName.framework"
+    private val simulatorArm64DebugSymbolsPath = "$rootDir/build/bin/iosSimulatorArm64/${buildConfiguration}Framework/$libName.framework.dSYM"
 
     private val xcFrameworkDest = File("${project.rootDir}/${xcFrameworkPath}")
 
