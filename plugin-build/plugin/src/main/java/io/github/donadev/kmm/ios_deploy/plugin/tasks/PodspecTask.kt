@@ -1,6 +1,6 @@
-package com.donadev.kmm.ios_deploy.plugin.tasks
+package io.github.donadev.kmm.ios_deploy.plugin.tasks
 
-import com.donadev.kmm.ios_deploy.plugin.DeployExtension
+import io.github.donadev.kmm.ios_deploy.plugin.DeployExtension
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.provider.Property

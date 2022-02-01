@@ -1,4 +1,4 @@
-package com.donadev.kmm.ios_deploy.plugin.tasks
+package io.github.donadev.kmm.ios_deploy.plugin.tasks
 
 import org.gradle.api.tasks.Exec
 import java.io.File

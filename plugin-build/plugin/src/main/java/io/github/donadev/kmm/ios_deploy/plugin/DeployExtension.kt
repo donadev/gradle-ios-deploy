@@ -1,6 +1,6 @@
-package com.donadev.kmm.ios_deploy.plugin
+package io.github.donadev.kmm.ios_deploy.plugin
 
-import com.donadev.kmm.ios_deploy.plugin.models.PodRepository
+import io.github.donadev.kmm.ios_deploy.plugin.models.PodRepository
 import org.gradle.api.provider.Property
 import javax.inject.Inject
 

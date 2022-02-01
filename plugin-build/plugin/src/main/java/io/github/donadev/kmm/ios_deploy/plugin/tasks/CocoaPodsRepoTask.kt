@@ -1,7 +1,7 @@
-package com.donadev.kmm.ios_deploy.plugin.tasks
+package io.github.donadev.kmm.ios_deploy.plugin.tasks
 
-import com.donadev.kmm.ios_deploy.plugin.DeployExtension
-import com.donadev.kmm.ios_deploy.plugin.models.PodRepository
+import io.github.donadev.kmm.ios_deploy.plugin.DeployExtension
+import io.github.donadev.kmm.ios_deploy.plugin.models.PodRepository
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.Input

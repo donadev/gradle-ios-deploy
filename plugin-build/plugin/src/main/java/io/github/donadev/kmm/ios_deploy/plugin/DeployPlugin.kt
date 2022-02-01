@@ -1,6 +1,6 @@
-package com.donadev.kmm.ios_deploy.plugin
+package io.github.donadev.kmm.ios_deploy.plugin
 
-import com.donadev.kmm.ios_deploy.plugin.tasks.*
+import io.github.donadev.kmm.ios_deploy.plugin.tasks.*
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
