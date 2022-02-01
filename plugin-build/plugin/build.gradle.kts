@@ -14,13 +14,6 @@ dependencies {
 
     testImplementation(TestingLib.JUNIT)
 }
-fun fileCredentials() = Properties().apply {
-    load(FileInputStream(rootProject.file("github.properties")))
-}
-
-fun ciCredentials() = Properties().apply {
-    this["gpr.key"] = System.getenv("GPR_KEY").toString()
-}
 
 
 java {
