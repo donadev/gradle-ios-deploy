@@ -1,7 +1,6 @@
 package io.github.donadev.kmm.ios_deploy.plugin.tasks
 
 import io.github.donadev.kmm.ios_deploy.plugin.DeployExtension
-import io.github.donadev.kmm.ios_deploy.plugin.models.PodRepository
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.Input
@@ -28,7 +27,7 @@ abstract class PodspecDeployTask: Exec() {
             add("repo")
             add("push")
             add("--allow-warnings")
-            add(extension.get().podRepository.get().name)
+            add(extension.get().specRepository.get().name)
             add("${project.name}.podspec")
         })
         super.exec()

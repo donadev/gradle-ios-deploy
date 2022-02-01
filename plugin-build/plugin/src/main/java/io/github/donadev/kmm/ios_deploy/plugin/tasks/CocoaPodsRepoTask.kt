@@ -1,7 +1,6 @@
 package io.github.donadev.kmm.ios_deploy.plugin.tasks
 
 import io.github.donadev.kmm.ios_deploy.plugin.DeployExtension
-import io.github.donadev.kmm.ios_deploy.plugin.models.PodRepository
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.Input
@@ -22,8 +21,8 @@ abstract class CocoaPodsRepoTask : Exec() {
         args(mutableListOf<String>().apply {
             add("repo")
             add("add")
-            add(extension.get().podRepository.get().name)
-            add(extension.get().podRepository.get().url)
+            add(extension.get().specRepository.get().name)
+            add(extension.get().specRepository.get().url)
         })
         super.exec()
     }

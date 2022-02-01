@@ -1,6 +1,6 @@
 package io.github.donadev.kmm.ios_deploy.plugin
 
-import io.github.donadev.kmm.ios_deploy.plugin.models.PodRepository
+import io.github.donadev.kmm.ios_deploy.plugin.models.SpecRepository
 import org.gradle.api.provider.Property
 import javax.inject.Inject
 
@@ -8,7 +8,7 @@ import javax.inject.Inject
 abstract class DeployExtension @Inject constructor() {
 
     abstract val summary: Property<String>
-    abstract val podRepository: Property<PodRepository>
+    abstract val specRepository: Property<SpecRepository>
     abstract val gitUrl: Property<String>
     abstract val homepage: Property<String>
     abstract val authors: Property<String>
