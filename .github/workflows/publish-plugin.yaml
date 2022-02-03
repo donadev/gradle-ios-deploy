@@ -27,9 +27,7 @@ jobs:
         with:
           path: ~/.gradle/wrapper/
           key: cache-gradle-wrapper
-      - name: Publish on Github Packages
-        run: ./gradlew --project-dir plugin-build publish
-      - name: Publish on Plugin Portal
+      - name: Publish on Plugin Portal/Github Packages
         run: ./gradlew --project-dir plugin-build setupPluginUploadFromEnvironment publishPlugins
         if: success()
       - name: Stop Gradle
