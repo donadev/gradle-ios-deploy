@@ -19,7 +19,7 @@ fun fileCredentials() = Properties().apply {
 }
 
 fun ciCredentials() = Properties().apply {
-    this["gpr.usr"] = System.getenv("GITHUB_USERNAME").toString()
+    this["gpr.usr"] = System.getenv("GITHUB_USER").toString()
     this["gpr.key"] = System.getenv("GITHUB_TOKEN").toString()
 }
 
