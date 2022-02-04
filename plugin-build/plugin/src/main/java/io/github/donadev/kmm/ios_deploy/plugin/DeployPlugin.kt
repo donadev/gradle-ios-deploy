@@ -32,6 +32,7 @@ abstract class DeployPlugin : Plugin<Project> {
             it.xcFrameworkPath.set(xcFrameworkPath)
             it.group = groupName
         }
+        project.tasks.getByName("preBuild").dependsOn("podspec")
         //TODO
         /*project.task("deployPackageToCollection") {
             this.group = groupName
